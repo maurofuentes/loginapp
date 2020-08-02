@@ -8,27 +8,30 @@ export default function Register(){
         console.log(e.target.name);
 
 
-        // const data = JSON.stringify({
-        //     fullname: "mftest",
-        //     password: "123456",
-        //     email: "mauro@mail.com"
-        // })
+        const data = JSON.stringify({
+            fullname: "mftest",
+            password: "123456",
+            email: "mauro@mail.com"
+        })
         
-        // const options = {
-        //     method: 'POST',
-        //     body: data
-        // }
+        const options = {
+            method: 'POST',
+            body: data,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
     
         
-        // const asyncTest = async () => {
+        const asyncTest = async () => {
     
-        //     const respuesta = await fetch("https://redis-auth.herokuapp.com/auth/register", options );
+            const respuesta = await fetch("https://redis-auth.herokuapp.com/auth/register", options );
             
-        //     const datos = await respuesta.json()
-        //     console.log(datos);
-        // }
+            const datos = await respuesta.json()
+            console.log(datos);
+        }
 
-        // asyncTest();
+        asyncTest();
        
     }
 

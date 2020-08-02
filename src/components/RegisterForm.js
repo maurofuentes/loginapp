@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function RegisterForm(){
+export default function RegisterForm( { handleSubmit} ){
+
     //symbols
     const back = "<<";
+    
     return(
-        <form>
+        <form onSubmit={handleSubmit} name="registerForm">
             <legend className="font-weight-bold">Create an Account</legend>
             <hr/>
             <div className="form-group">
@@ -18,12 +20,12 @@ export default function RegisterForm(){
                 <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div className="form-group">
-                <label for="Password1">Password</label>
-                <input type="password" className="form-control" id="Password1"/>
+                <label for="Password">Password</label>
+                <input type="password" className="form-control" name="Password" id="Password"/>
             </div>
             <div className="form-group">
-                <label for="Password1">Confirm password</label>
-                <input type="password" className="form-control" id="Password1"/>
+                <label for="PasswordConfirm">Confirm password</label>
+                <input type="password" className="form-control" name="PasswordConfirm" id="PasswordConfirm"/>
             </div>
             <div className="row">
                 <div className="col-6 text-right">

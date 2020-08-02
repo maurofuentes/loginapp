@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function LoginForm(){
+export default function LoginForm( { handleSubmit } ){
 
 
     return(
-        <form>
+        <form onSubmit={handleSubmit} name="loginForm">
             <legend className="font-weight-bold text-center">Login</legend>
             <hr/>
             <div className="form-group">

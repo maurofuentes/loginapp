@@ -4,9 +4,9 @@ export default function Welcome(){
 
     const getAbout = async () => {
 
-        const tokenLS = '\'' + localStorage.getItem('token') + '\'';
+        const tokenLS = localStorage.getItem('token');
 
-        const token = tokenLS.replace(/"/g, '');
+        const token = JSON.parse(tokenLS);
 
         console.log(token);
         // const data = JSON.stringify( userValues );
@@ -15,7 +15,7 @@ export default function Welcome(){
             method: 'GET',
             headers: 
             {
-                'Authorization': 'O0PdO8ECmpkNZiVINrzHVKulhMCY'
+                'Authorization': 'Bearer ' + token
             }
         }
     

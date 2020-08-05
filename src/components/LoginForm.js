@@ -32,8 +32,10 @@ export default function LoginForm( { email, password, onChangeForm, handleSubmit
                     value = { password }
                 />
             </div>
-            <div className="text-center">                
-                    <button type="submit" className="btn btn-primary">LOGIN</button>
+            <div className="text-center"> 
+                    {/* <Link to="/welcome"> */}
+                        <button type="submit" className="btn btn-primary">LOGIN</button>
+                    {/* </Link>                */}
             </div>
             <div className="text-center">
                 <Link to="/register">

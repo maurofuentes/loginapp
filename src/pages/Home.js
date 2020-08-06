@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import LoginForm from '../components/LoginForm';
 
 export default function Home(){
@@ -16,8 +16,7 @@ export default function Home(){
           
             {
               ...userValues,
-              [e.target.name] : e.target.value,
-              [e.target.name] : e.target.value
+              [e.target.name] : e.target.value              
             }
           
         );

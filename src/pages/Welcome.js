@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Welcome(){
+
+    const aboutContent = "";
+
+    const [about, setAbout] = useState(aboutContent);
 
     const getAbout = async () => {
 
@@ -9,7 +13,6 @@ export default function Welcome(){
         const token = JSON.parse(tokenLS);
 
         console.log(token);
-        // const data = JSON.stringify( userValues );
         
         const options = {
             method: 'GET',
@@ -24,11 +27,16 @@ export default function Welcome(){
         const datos = await respuesta.json();
 
         console.log(datos.message);
+
+        setAbout(datos.message);
     }
 
     getAbout();
 
     return(
-        <h3>Welcome...</h3>
+        <div>
+            
+            <h3>{about}</h3>
+        </div>
     );
 }

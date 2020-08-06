@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LoginForm from '../components/LoginForm';
+import { Redirect } from 'react-router-dom';
 
 export default function Home(){
 
@@ -9,6 +10,8 @@ export default function Home(){
     }
 
     const [userValues, setUserValues] = useState(userData);
+
+    const [status, setStatus] = useState(undefined);
   
     const onChangeForm = e =>{
 
@@ -50,11 +53,13 @@ export default function Home(){
 
             setLocalStorage(datos.access_token);
 
-            console.log(datos.access_token);
+            setStatus(respuesta.status);
+            
         }
 
         asyncTest();
        
+        console.log(status);
     }
 
     return(        
@@ -68,6 +73,7 @@ export default function Home(){
                                 password = { userValues.password }
                                 onChangeForm = { onChangeForm }
                                 handleSubmit = { handleSubmit }
+                                status = { status }
                             />
                         </div>
                     </div>

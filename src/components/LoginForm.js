@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
-export default function LoginForm( { email, password, onChangeForm, handleSubmit } ){
+export default function LoginForm( { email, password, onChangeForm, handleSubmit, status } ){
 
 
     return(
@@ -33,9 +33,10 @@ export default function LoginForm( { email, password, onChangeForm, handleSubmit
                 />
             </div>
             <div className="text-center"> 
-                    {/* <Link to="/welcome"> */}
-                        <button type="submit" className="btn btn-primary">LOGIN</button>
-                    {/* </Link>                */}
+                    
+                <button type="submit" className="btn btn-primary">LOGIN</button>
+                {status === 200 && <Redirect to="/welcome" />}
+                    
             </div>
             <div className="text-center">
                 <Link to="/register">

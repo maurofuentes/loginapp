@@ -9,7 +9,8 @@ export default function LoginForm( { email, password, onChangeForm, handleSubmit
             <legend className="font-weight-bold text-center">Login</legend>
             <hr/>
             <div className="form-group">
-                <label for="Email1">Email address</label>
+                
+                <label htmlFor="Email1">Email address</label>
                 <input
                     type = "email"
                     name = "email"
@@ -22,7 +23,7 @@ export default function LoginForm( { email, password, onChangeForm, handleSubmit
                 <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div className="form-group">
-                <label for="Password1">Password</label>
+                <label htmlFor="Password1">Password</label>
                 <input
                     type = "password"
                     name = "password"

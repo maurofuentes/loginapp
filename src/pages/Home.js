@@ -12,6 +12,8 @@ export default function Home(){
     const [userValues, setUserValues] = useState(userData);
 
     const [status, setStatus] = useState(undefined);
+
+    const checkToken = localStorage.getItem ( 'token' );
   
     const onChangeForm = e =>{
 
@@ -23,8 +25,7 @@ export default function Home(){
             }
           
         );
-    
-        console.log(userValues);
+
     }
 
     const handleSubmit = e => {
@@ -59,7 +60,6 @@ export default function Home(){
 
         asyncTest();
        
-        console.log(status);
     }
 
     return(        
@@ -75,6 +75,8 @@ export default function Home(){
                                 handleSubmit = { handleSubmit }
                                 status = { status }
                             />
+                            { checkToken !== null && <Redirect to="/welcome" /> }
+                            
                         </div>
                     </div>
                 </div>

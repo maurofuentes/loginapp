@@ -11,7 +11,7 @@ export default function RegisterForm( { fullname, email, password, passwordConfi
             <legend className="font-weight-bold">Create an Account</legend>
             <hr/>
             <div className="form-group">
-                <label for="fullname">Full Name</label>
+                <label htmlFor="fullname">Full Name</label>
                 <input
                     type="text"
                     className="form-control"
@@ -22,7 +22,7 @@ export default function RegisterForm( { fullname, email, password, passwordConfi
                 />
             </div>
             <div className="form-group">                
-                <label for="email">Email address</label>
+                <label htmlFor="email">Email address</label>
                 <input
                     type="email"
                     className="form-control"
@@ -35,7 +35,7 @@ export default function RegisterForm( { fullname, email, password, passwordConfi
                 <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div className="form-group">
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input
                     type="password"
                     className="form-control"
@@ -46,7 +46,7 @@ export default function RegisterForm( { fullname, email, password, passwordConfi
                 />
             </div>
             <div className="form-group">
-                <label for="passwordconfirm">Confirm password</label>
+                <label htmlFor="passwordconfirm">Confirm password</label>
                 <input
                     type="password"
                     className="form-control"

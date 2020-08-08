@@ -82,17 +82,24 @@ export default function Register(){
 
 
     return(
-        <div className="container mt-3 border border-primary shadow-lg p-3 mb-5 bg-white rounded">
-            <RegisterForm
-                fullname = { userValues.fullname }
-                email = { userValues.email }
-                password = { userValues.password }
-                passwordConfirm = { userValues.passwordconfirm}
-                onChangeForm = { onChangeForm }
-                handleSubmit = { handleSubmit }
-            />
-            { status === 200 && <Redirect to="/" /> }
+        <div className="container h-100 mt-5 text-centers">
+            <div className="row justify-content-center h-100">
+                <div className="col-sm-8 align-self-center">
+                    <div className="container mt-3 border border-primary shadow-lg p-3 mb-5 bg-white rounded">
+                        <RegisterForm
+                            fullname = { userValues.fullname }
+                            email = { userValues.email }
+                            password = { userValues.password }
+                            passwordConfirm = { userValues.passwordconfirm}
+                            onChangeForm = { onChangeForm }
+                            handleSubmit = { handleSubmit }
+                        />
+                        { status === 200 && <Redirect to="/" /> }
+                    </div>
+                </div>
+            </div>
         </div>
+        
     );
 
 }

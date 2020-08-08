@@ -51,12 +51,18 @@ export default function Welcome(){
     }
 
     return(
-        <div className="container mt-3 border border-primary shadow-lg p-3 mb-5 bg-white rounded text-center">            
-            <h3>{about}</h3>
-            <Logout
-                handleClickLogout = { handleClickLogout }
-            />
-            { tokenLS === null && <Redirect to = "/" />}
+        <div className="container h-100 mt-5 text-centers">
+            <div className="row justify-content-center h-100">
+                <div className="col-sm-8 align-self-center">
+                    <div className="container mt-3 border border-primary shadow-lg p-3 mb-5 bg-white rounded text-center">            
+                        <h3>{about}</h3>
+                        <Logout
+                            handleClickLogout = { handleClickLogout }
+                        />
+                        { tokenLS === null && <Redirect to = "/" />}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

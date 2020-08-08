@@ -7,13 +7,21 @@ export default function Welcome(){
     const aboutContent = "";
 
     const [about, setAbout] = useState(aboutContent);
-
+    
     const tokenLS = localStorage.getItem('token');
-
+    
     const token = JSON.parse(tokenLS);
     
     const options = {
         method: 'GET',
+        headers: 
+        {
+            'Authorization': 'Bearer ' + token
+        }
+    }
+
+    const optionsLogout = {
+        method: 'POST',
         headers: 
         {
             'Authorization': 'Bearer ' + token
@@ -27,22 +35,28 @@ export default function Welcome(){
         const datos = await respuesta.json();
 
         setAbout(datos.message);
+
     }
 
     getAbout();
 
     const handleClickLogout = () => {
-        localStorage.removeItem( 'token' );
+    
+        localStorage.removeItem('token');
+
+        // const respuesta = await fetch("https://redis-auth.herokuapp.com/auth/logout", optionsLogout );
+
+        // ( respuesta.status === 200 && localStorage.removeItem( 'token') );
+        
     }
 
     return(
-        <div>
-            
+        <div>            
             <h3>{about}</h3>
             <Logout
                 handleClickLogout = { handleClickLogout }
             />
-            { tokenLS === null && <Redirect to = "/"/>}            
+            { tokenLS === null && <Redirect to = "/" />}
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import RegisterForm from '../components/RegisterForm';
+import { Redirect } from 'react-router-dom';
 
 export default function Register(){
 
@@ -10,30 +11,45 @@ export default function Register(){
         passwordconfirm : ""
     }
 
+    let errors = [];
+
+    const answStatus = 0;
+    
     const [userValues, setUserValues] = useState(userData);
   
+    const [status, setStatus] = useState(answStatus);
+
     const onChangeForm = e =>{
 
         setUserValues(
           
             {
               ...userValues,
-              [e.target.name] : e.target.value,
-              [e.target.name] : e.target.value,
-              [e.target.name] : e.target.value,
               [e.target.name] : e.target.value
             }
           
         );
     
-        console.log(userValues);
     }
-
+    
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(e.target.name);
+        
+        //=====inputs validation=====>
+        
+        ( userValues.fullname === "" && errors.push("fullname") );
 
+        ( userValues.fullname === "" && alert("Fullname field cannot be empty") );
 
+        ( userValues.email === "" && errors.push("email") );
+
+        ( userValues.email === "" && alert("Email field cannot be empty") );
+
+        (userValues.password !== userValues.passwordconfirm && errors.push("password") );
+
+        (userValues.password !== userValues.passwordconfirm && alert("The passwords do not match") );
+        
+        //=====>fetch=====>
         const data = JSON.stringify( userValues );
         
         const options = {
@@ -42,19 +58,25 @@ export default function Register(){
             headers: {
                 'Content-Type': 'application/json'
             }
-        }
-    
-        
-        const asyncTest = async () => {
-    
-            const respuesta = await fetch("https://redis-auth.herokuapp.com/auth/register", options );
-            
-            const datos = await respuesta.json()
-            console.log(datos);
-        }
+        } 
 
-        asyncTest();
-       
+        if(errors.length === 0){
+            
+            const asyncTest = async () => {
+        
+                const respuesta = await fetch("https://redis-auth.herokuapp.com/auth/register", options );
+                
+                if ( respuesta.status === 200 ){
+
+                    setStatus(200);
+
+                }
+
+            }
+    
+            asyncTest();
+
+        } 
     }
 
 
@@ -69,6 +91,7 @@ export default function Register(){
                 onChangeForm = { onChangeForm }
                 handleSubmit = { handleSubmit }
             />
+            { status === 200 && <Redirect to="/" /> }
         </div>
     );
 

@@ -63,10 +63,10 @@ export default function Home(){
     }
 
     return(        
-        <div className="container h-100 mt-5 text-center">
+        <div className="container h-100 mt-5 text-centers">
             <div className="row justify-content-center h-100">
                 <div className="col-sm-8 align-self-center">
-                    <div className="card justify-content-center">
+                    <div className="card justify-content-center bg-light border border-primary shadow-lg p-3 mb-5 bg-white rounded">
                         <div className="card-body">
                             <LoginForm
                                 email = { userValues.email }

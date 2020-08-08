@@ -51,7 +51,7 @@ export default function Welcome(){
     }
 
     return(
-        <div>            
+        <div className="container mt-3 border border-primary shadow-lg p-3 mb-5 bg-white rounded text-center">            
             <h3>{about}</h3>
             <Logout
                 handleClickLogout = { handleClickLogout }

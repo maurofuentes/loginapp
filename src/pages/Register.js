@@ -82,7 +82,7 @@ export default function Register(){
 
 
     return(
-        <div className="container mt-3">
+        <div className="container mt-3 border border-primary shadow-lg p-3 mb-5 bg-white rounded">
             <RegisterForm
                 fullname = { userValues.fullname }
                 email = { userValues.email }

@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { BsPencilSquare } from "react-icons/bs";
+import { FaUserAlt, FaEnvelope, FaLock, FaCheck } from "react-icons/fa";
+
 
 export default function RegisterForm( { fullname, email, password, passwordConfirm, onChangeForm, handleSubmit} ){
 
@@ -11,7 +14,7 @@ export default function RegisterForm( { fullname, email, password, passwordConfi
             <legend className="font-weight-bold">Create an Account</legend>
             <hr/>
             <div className="form-group">
-                <label htmlFor="fullname">Full Name</label>
+                <FaUserAlt className="mr-2"/><label htmlFor="fullname">Full Name</label>
                 <input
                     type="text"
                     className="form-control"
@@ -19,10 +22,10 @@ export default function RegisterForm( { fullname, email, password, passwordConfi
                     id="fullname"
                     value = { fullname }
                     onChange = { onChangeForm }
-                />
+                />                
             </div>
             <div className="form-group">                
-                <label htmlFor="email">Email address</label>
+                <FaEnvelope className="mr-2"/> <label htmlFor="email">Email address</label>
                 <input
                     type="email"
                     className="form-control"
@@ -35,7 +38,7 @@ export default function RegisterForm( { fullname, email, password, passwordConfi
                 <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div className="form-group">
-                <label htmlFor="password">Password</label>
+                <FaLock className="mr-2" /><label htmlFor="password">Password</label>
                 <input
                     type="password"
                     className="form-control"
@@ -46,7 +49,7 @@ export default function RegisterForm( { fullname, email, password, passwordConfi
                 />
             </div>
             <div className="form-group">
-                <label htmlFor="passwordconfirm">Confirm password</label>
+                <FaCheck className="mr-2" /><label htmlFor="passwordconfirm">Confirm password</label>
                 <input
                     type="password"
                     className="form-control"
@@ -65,7 +68,7 @@ export default function RegisterForm( { fullname, email, password, passwordConfi
                     </Link>
                 </div>
                 <div className="col-6">
-                    <button type="submit" className="btn btn-primary">SIGN IN</button>                    
+                    <button type="submit" className="btn btn-primary font-italic">SIGN IN <BsPencilSquare className="ml-1"/></button>                    
                 </div>
             </div>
         </form>

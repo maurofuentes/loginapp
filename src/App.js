@@ -10,13 +10,14 @@ import Register from './pages/Register';
 import Welcome from './pages/Welcome';
 import About from './pages/About';
 
+
 function App() {
 
 
   return (
     
     <Router className="h-100">
-      <Switch>
+      <Switch>      
         <Route exact path="/">
           <Home
             

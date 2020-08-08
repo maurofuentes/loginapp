@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { BsBoxArrowRight } from "react-icons/bs";
 
 export default function Logout ( { handleClickLogout }) {
 
@@ -9,7 +10,7 @@ export default function Logout ( { handleClickLogout }) {
                 className = "btn btn-sm btn-primary"
                 onClick = { handleClickLogout }
             > 
-                Logout
+                Logout <BsBoxArrowRight className="ml-1"/>
             </button>        
         </Link>
     );

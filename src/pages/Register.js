@@ -45,11 +45,16 @@ export default function Register(){
 
         ( userValues.email === "" && alert("Email field cannot be empty") );
 
+        (userValues.password.length < 5 && alert("Invalid Password. Minimum of 5 characters required.") );
+        
+        (userValues.password.length < 5 && errors.push("password length invalid") );
+        
         (userValues.password !== userValues.passwordconfirm && errors.push("password") );
 
         (userValues.password !== userValues.passwordconfirm && alert("The passwords do not match") );
         
         //=====>fetch=====>
+
         const data = JSON.stringify( userValues );
         
         const options = {

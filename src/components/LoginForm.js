@@ -35,6 +35,7 @@ export default function LoginForm( { email, password, onChangeForm, handleSubmit
                         id = "Password1"
                         onChange = { onChangeForm }    
                         value = { password }
+                        required
                     />
                 </div>
                 <div className="text-center"> 

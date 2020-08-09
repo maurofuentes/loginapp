@@ -47,14 +47,23 @@ export default function Home(){
         } 
         
         const asyncTest = async () => {
+
+            try {
+
+                const respuesta = await fetch("https://redis-auth.herokuapp.com/auth/login", options );
+
+                const datos = await respuesta.json();
     
-            const respuesta = await fetch("https://redis-auth.herokuapp.com/auth/login", options );
-            
-            const datos = await respuesta.json();
+                console.log(status);
+    
+                setLocalStorage(datos.access_token);
+    
+                setStatus(respuesta.status);
+            } catch ( e ) {
 
-            setLocalStorage(datos.access_token);
-
-            setStatus(respuesta.status);
+                alert( "Email or Password invalid. Please Check your registered account and try again." );
+                
+            }            
             
         }
 

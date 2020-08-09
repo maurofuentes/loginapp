@@ -68,8 +68,13 @@ export default function Register(){
                 
                 if ( respuesta.status === 200 ){
 
+                    alert("Congratulations " + userValues.fullname + "! Your account has been created.");
+
                     setStatus(200);
 
+                } else {
+
+                    alert("Failure. Try again.");
                 }
 
             }

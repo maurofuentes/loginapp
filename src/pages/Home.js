@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import LoginForm from '../components/LoginForm';
 import { Redirect } from 'react-router-dom';
+import { apiLogin } from '../services/auth';
+
 
 export default function Home(){
 
@@ -28,48 +30,47 @@ export default function Home(){
 
     }
 
-    const handleSubmit = e => {
-        e.preventDefault();
+    const handleSubmit = async e => {
+        e.preventDefault();        
         
-        //json data for login 
-        const data = JSON.stringify( userValues );
-        
-        const options = {
-            method: 'POST',
-            body: data,
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-    
-        const setLocalStorage = (datos) => {    
-            localStorage.setItem('token', JSON.stringify(datos));
-        } 
-        
-        const asyncTest = async () => {
+        //     try {
 
-            try {
+        //         const respuesta = await fetch("https://redis-auth.herokuapp.com/auth/login", options );
 
-                const respuesta = await fetch("https://redis-auth.herokuapp.com/auth/login", options );
+        //         const datos = await respuesta.json();
+    
+        //         console.log(status);
+    
+        //         setLocalStorage(datos.access_token);
+    
+        //         setStatus(respuesta.status);
 
-                const datos = await respuesta.json();
-    
-                console.log(status);
-    
-                setLocalStorage(datos.access_token);
-    
-                setStatus(respuesta.status);
-            } catch ( e ) {
+        //     } catch ( e ) {
 
-                alert( "Email or Password invalid. Please Check your registered account and try again." );
+        //         alert( "Email or Password invalid. Please Check your registered account and try again." );
                 
-            }            
+        //     }            
             
-        }
+        // }
+        try {
 
-        asyncTest();
+            const datos = await apiLogin( userValues );
+
+            setLocalStorage(datos.access_token);
+
+            setStatus(200);
+
+        } catch (error) {
+            
+            alert(error.message);
+
+        }
        
     }
+
+    const setLocalStorage = (datos) => {    
+        localStorage.setItem('token', JSON.stringify(datos));
+    } 
 
     return(        
         <div className="container h-100 mt-5 text-centers">

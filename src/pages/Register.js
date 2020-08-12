@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import RegisterForm from '../components/RegisterForm';
 import { Redirect } from 'react-router-dom';
 
+
 export default function Register(){
 
     const userData = {
@@ -14,10 +15,14 @@ export default function Register(){
     let errors = [];
 
     const answStatus = 0;
+
+    const toastShow = false;
     
     const [userValues, setUserValues] = useState(userData);
   
     const [status, setStatus] = useState(answStatus);
+
+    const [show, setShow] = useState( toastShow );
 
     const onChangeForm = e =>{
 
@@ -31,12 +36,18 @@ export default function Register(){
         );
     
     }
+
+
     
     const handleSubmit = e => {
         e.preventDefault();
         
         //=====inputs validation=====>
-        
+        // if ( userValues.fullname === "" ){
+        //     errors.push("fullname");
+
+        //     setShow ( true );
+        // }
         ( userValues.fullname === "" && errors.push("fullname") );
 
         ( userValues.fullname === "" && alert("Fullname field cannot be empty") );
